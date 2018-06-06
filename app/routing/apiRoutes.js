@@ -10,8 +10,11 @@ module.exports = function(app) {
 
 
   app.post("/api/friends", function(req, res) {
-
-  });
+    var userData 	= req.body;
+    var userName 	= userData.name;
+    var userPhoto 	= userData.photo;
+    var userScores 	= userData.scores;
+  
 
     var bestFriend = {
         name: "",
@@ -19,10 +22,7 @@ module.exports = function(app) {
         scores: 1000
   };
 
-  var userData 	= req.body;
-  var userName 	= userData.name;
-  var userPhoto 	= userData.photo;
-  var userScores 	= userData.scores;
+ 
 
   var totalDifference = [];
 
@@ -47,5 +47,6 @@ module.exports = function(app) {
   }
 	friendList.push(userData);
  
-		res.json(bestFriend);
+    res.json(bestFriend);
+  });
 	};
